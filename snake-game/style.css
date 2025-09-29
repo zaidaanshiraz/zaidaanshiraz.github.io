@@ -1,0 +1,270 @@
+/* Nokia Snake Game - Advanced Edition CSS */
+
+/* Reset and Base Styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'JetBrains Mono', monospace;
+    background: #000000;
+    color: #00ff00;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    padding: 20px;
+    overflow: hidden;
+}
+
+/* Nokia-style monochrome green theme */
+:root {
+    --nokia-green: #00ff00;
+    --nokia-dark-green: #00cc00;
+    --nokia-light-green: #44ff44;
+    --nokia-bg: #000000;
+    --nokia-border: #333333;
+    --nokia-shadow: rgba(0, 255, 0, 0.3);
+}
+
+/* Game Container */
+.game-container {
+    background: var(--nokia-bg);
+    border: 3px solid var(--nokia-green);
+    border-radius: 15px;
+    padding: 20px;
+    box-shadow: 
+        0 0 20px var(--nokia-shadow),
+        inset 0 0 20px rgba(0, 255, 0, 0.1);
+    max-width: 500px;
+    width: 100%;
+}
+
+/* Game Header */
+.game-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 15px;
+    padding: 10px 0;
+    border-bottom: 1px solid var(--nokia-dark-green);
+}
+
+.nokia-brand {
+    font-weight: 700;
+    font-size: 1.2rem;
+    letter-spacing: 2px;
+}
+
+.game-title {
+    font-weight: 600;
+    font-size: 1.5rem;
+    letter-spacing: 1px;
+    text-align: center;
+    flex: 1;
+}
+
+.score-display {
+    display: flex;
+    gap: 5px;
+    font-weight: 500;
+}
+
+.score-value {
+    font-weight: 700;
+    color: var(--nokia-light-green);
+}
+
+/* Game Screen */
+.game-screen {
+    position: relative;
+    margin: 20px auto;
+    border: 2px solid var(--nokia-green);
+    border-radius: 5px;
+    background: var(--nokia-bg);
+    box-shadow: inset 0 0 10px rgba(0, 255, 0, 0.2);
+}
+
+#gameCanvas {
+    display: block;
+    background: var(--nokia-bg);
+    image-rendering: pixelated;
+    image-rendering: -moz-crisp-edges;
+    image-rendering: crisp-edges;
+}
+
+/* Game Overlay */
+.game-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(0, 0, 0, 0.9);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--nokia-green);
+    text-align: center;
+    border-radius: 3px;
+}
+
+.overlay-content h2 {
+    font-size: 2rem;
+    margin-bottom: 15px;
+    letter-spacing: 2px;
+    text-shadow: 0 0 10px var(--nokia-shadow);
+}
+
+.overlay-content p {
+    font-size: 1.1rem;
+    margin-bottom: 10px;
+    font-weight: 500;
+}
+
+.controls-info {
+    margin-top: 20px;
+    font-size: 0.9rem;
+    opacity: 0.8;
+}
+
+.controls-info p {
+    margin-bottom: 5px;
+}
+
+/* Game Info */
+.game-info {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 20px;
+    margin: 20px 0;
+    font-size: 0.9rem;
+}
+
+.info-section h3 {
+    color: var(--nokia-light-green);
+    margin-bottom: 8px;
+    font-size: 1rem;
+    letter-spacing: 1px;
+}
+
+.info-section ul {
+    list-style: none;
+    line-height: 1.4;
+}
+
+.info-section li {
+    margin-bottom: 3px;
+    opacity: 0.9;
+}
+
+/* Game Stats */
+.game-stats {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px 0;
+    border-top: 1px solid var(--nokia-dark-green);
+    font-size: 0.9rem;
+}
+
+.stat {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 5px;
+}
+
+.stat-label {
+    opacity: 0.8;
+    font-size: 0.8rem;
+}
+
+.stat-value {
+    font-weight: 700;
+    color: var(--nokia-light-green);
+    font-size: 1rem;
+}
+
+/* Responsive Design */
+@media (max-width: 600px) {
+    body {
+        padding: 10px;
+    }
+    
+    .game-container {
+        padding: 15px;
+    }
+    
+    .game-header {
+        flex-direction: column;
+        gap: 10px;
+        text-align: center;
+    }
+    
+    .nokia-brand {
+        font-size: 1rem;
+    }
+    
+    .game-title {
+        font-size: 1.3rem;
+    }
+    
+    .game-info {
+        grid-template-columns: 1fr;
+        gap: 15px;
+    }
+    
+    .game-stats {
+        flex-direction: column;
+        gap: 10px;
+    }
+    
+    #gameCanvas {
+        width: 100%;
+        height: auto;
+    }
+}
+
+/* Animation Effects */
+@keyframes pulse {
+    0%, 100% { opacity: 1; }
+    50% { opacity: 0.7; }
+}
+
+.game-over .score-value {
+    animation: pulse 1s infinite;
+}
+
+/* Hidden class for overlay */
+.hidden {
+    display: none !important;
+}
+
+/* Pixelated rendering for canvas */
+canvas {
+    image-rendering: -moz-crisp-edges;
+    image-rendering: -webkit-crisp-edges;
+    image-rendering: pixelated;
+    image-rendering: crisp-edges;
+}
+
+/* Glow effects for enhanced Nokia feel */
+.game-container {
+    animation: subtle-glow 3s ease-in-out infinite alternate;
+}
+
+@keyframes subtle-glow {
+    from {
+        box-shadow: 
+            0 0 20px var(--nokia-shadow),
+            inset 0 0 20px rgba(0, 255, 0, 0.1);
+    }
+    to {
+        box-shadow: 
+            0 0 30px var(--nokia-shadow),
+            inset 0 0 30px rgba(0, 255, 0, 0.15);
+    }
+}

@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nokia Snake Game - Advanced Edition</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="game-container">
+        <div class="game-header">
+            <div class="nokia-brand">NOKIA</div>
+            <div class="game-title">SNAKE</div>
+            <div class="score-display">
+                <span class="score-label">SCORE:</span>
+                <span class="score-value" id="score">0</span>
+            </div>
+        </div>
+        
+        <div class="game-screen">
+            <canvas id="gameCanvas" width="400" height="400"></canvas>
+            <div class="game-overlay" id="gameOverlay">
+                <div class="overlay-content">
+                    <h2 id="overlayTitle">NOKIA SNAKE</h2>
+                    <p id="overlayMessage">Press SPACE to start</p>
+                    <div class="controls-info">
+                        <p>Use arrow keys to move</p>
+                        <p>SPACE to pause/resume</p>
+                        <p>R to restart</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <div class="game-info">
+            <div class="info-section">
+                <h3>Game Features:</h3>
+                <ul>
+                    <li>• Wall wrapping mechanics</li>
+                    <li>• Green food = +10 points</li>
+                    <li>• Red food = GAME OVER</li>
+                    <li>• Speed increases every 50 points</li>
+                </ul>
+            </div>
+            <div class="info-section">
+                <h3>Controls:</h3>
+                <ul>
+                    <li>• ↑↓←→ Arrow keys to move</li>
+                    <li>• SPACE to pause/resume</li>
+                    <li>• R to restart game</li>
+                </ul>
+            </div>
+        </div>
+        
+        <div class="game-stats">
+            <div class="stat">
+                <span class="stat-label">High Score:</span>
+                <span class="stat-value" id="highScore">0</span>
+            </div>
+            <div class="stat">
+                <span class="stat-label">Speed:</span>
+                <span class="stat-value" id="speedLevel">1</span>
+            </div>
+            <div class="stat">
+                <span class="stat-label">Length:</span>
+                <span class="stat-value" id="snakeLength">1</span>
+            </div>
+        </div>
+    </div>
+    
+    <script src="script.js"></script>
+</body>
+</html>
